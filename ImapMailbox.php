@@ -327,7 +327,7 @@ class ImapMailbox {
 				}
 			}
 		}
-		if(!empty($params['charset'])) {
+		if(!empty($params['charset']) && strtoupper($params['charset']) != strtoupper($this->serverEncoding)) {
 			$data = iconv(strtoupper($params['charset']), $this->serverEncoding, $data);
 		}
 
